@@ -33,7 +33,10 @@ def userform():
     elif len(password) < 3 or len(password) > 20:
         password_error = "Must be between 3 and 20 characters long"
 
-    if not verify:
+    if verify != password:
+        verify_error = "Passwords do not match"
+        password_error = "Passwords do not match"
+    elif not verify:
         verify_error = "Field cannot be empty"
     elif " " in verify:
         verify_error = "Cannot contain spaces"
